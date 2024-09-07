@@ -6,7 +6,7 @@ void ArraySort(T A[], int s)
 {
     int i, j;
     T temp;
-    for (i = 0; i < N - 1; i++)
+    for (i = 0; i < s - 1; i++)
     {
         for (j = i + 1; j < s; j++)
         {
