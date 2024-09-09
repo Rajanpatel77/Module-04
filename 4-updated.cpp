@@ -9,19 +9,20 @@ class Interest
     float rate;
     float simpleInterest;
 
-    Interest(int principal_, int year_, int rate_)
+    void setDetails()
     {
-        principal = principal_;
-        year = year_;
-        rate = rate_;
-        simpleInterest = (principal * year * rate) / 100.0;
-    }
+        cout << "Enter Principal Amount: ";
+        cin >> principal;
+        cout << "Enter Number of Years: ";
+        cin >> year;
+        cout << "Enter Interest Rate: ";
+        cin >> rate;
 
-    Interest(int principal_, int year_, float rate_ = 2.5)
-    {
-        principal = principal_;
-        year = year_;
-        rate = rate_;
+        if (rate == 0)
+        {
+            rate = 2.5; 
+        }
+        
         simpleInterest = (principal * year * rate) / 100.0;
     }
 
@@ -36,8 +37,9 @@ class Interest
 
 int main()
 {
-    Interest interest1(10000, 5, 3);  
-    interest1.Display();
+    Interest data;
+    data.setDetails();
+    data.Display();
 
     return 0;
 }
