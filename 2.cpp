@@ -10,54 +10,59 @@ class BankAccount
     string accountType;
     int balance;
 
-    BankAccount(string depositerName_, int accountNumber_, string accountType_, int balance_)
-
+    void setDetails()
     {
-        depositerName = depositerName_;
-        accountNumber = accountNumber_;
-        accountType = accountType_;
-        balance = balance_;
+        cout << "Depositer Name: ";
+        cin >> depositerName;
+        cout << "Account Number: ";
+        cin >> accountNumber;
+        cout << "Account Type: ";
+        cin >> accountType;
+        cout << "Balance: ";
+        cin >> balance;
     }
 
-    void deposite(int amount)
+    void deposite()
     {
+        int amount;
+        cout << "deposit Amount: ";
+        cin >> amount;
         balance += amount;
-        cout<< balance << endl;
+        cout << "Balance after deposit: " << balance << endl;
     }
 
-    void withdraw(int amount)
+    void withdraw()
     {
+        int amount;
+        cout << "withdraw Amount: ";
+        cin >> amount;
         if (amount > balance)
         {
-            cout<<"Please Deposite Amount to withdraw amount" << endl;
+            cout << "Please depositfunds for withdraw amount." << endl;
         }
         else
         {
             balance -= amount;
-            cout<<balance<<endl;
+            cout << "Balance after withdrawal: " << balance << endl;
         }
-        }
-        void ShowDetails()
-        {
-            cout<<"Depositer Name: "<< depositerName <<endl;
-            cout<<"Account Number: "<< accountNumber <<endl;
-            cout<<"Account Type: "<< accountType <<endl;
-            
-        }
-    
+    }
+
+    void ShowDetails()
+    {
+        cout << "Depositer Name: " << depositerName << endl;
+        cout << "Account Number: " << accountNumber << endl;
+        cout << "Account Type: " << accountType << endl;
+    }
 };
 
-    int main()
-    {
-            BankAccount data("Rajan",456789,"Current",9000000);
-            
-            data.ShowDetails();
-            data.deposite(100000);
-            data.withdraw(99);
-            
+int main()
+{
+    BankAccount data;
 
+    data.setDetails();
+    data.ShowDetails();
+    data.deposite();
+    data.withdraw();
 
-
-
-        return 0;
-    }
+    return 0;
+}
